@@ -16,8 +16,7 @@
 </head>
 <body>
 
-  <!-- <?php require_once('require/header.php') ?> -->
-
+<%@ include file="commonContent/header.jsp" %>
   <div class="container">
     <main>
       <div class="row">
@@ -28,7 +27,7 @@
     </main>
   </div>
 
-   <!-- <?php require_once('require/footer.php') ?> -->
+<%@ include file="commonContent/footer.jsp" %>
 
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
