@@ -3,25 +3,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Stage X - Accueil</title>
+  <title>Stage X - Plan</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="css/master.css" media="screen" title="no title">
 </head>
 <body>
 
 <%@ include file="commonContent/header.jsp" %>
+
   <div class="container">
     <main>
       <div class="row">
         <div class="col s6">
-          <h4>Accueil</h4>
+          <h4>Plan du site Internet</h4>
         </div>
       </div>
     </main>
@@ -29,15 +28,18 @@
 
 <%@ include file="commonContent/footer.jsp" %>
 
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-
+  <!-- Compiled and minified JavaScript -->
+  <script type="text/javascript">
+    $(".button-collapse").sideNav();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript">
   $('.button-collapse').sideNav({
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
     draggable: true // Choose whether you can drag to open on touch screens
-  });
+  }
+  );
   </script>
 </body>
 </html>
