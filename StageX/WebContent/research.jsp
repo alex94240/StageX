@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Stage X - Accueil</title>
+  <title>Stage X - Recherche</title>
   <meta charset="utf-8">
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,11 +17,12 @@
 <body>
 
 <%@ include file="commonContent/header.jsp" %>
+
   <div class="container">
     <main>
       <div class="row">
         <div class="col s6">
-          <h4>Accueil</h4>
+          <h4>Recherche</h4>
         </div>
       </div>
     </main>
@@ -32,12 +33,13 @@
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
-
   <script type="text/javascript">
   $('.button-collapse').sideNav({
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
     draggable: true // Choose whether you can drag to open on touch screens
-  });
+  }
+  );
   </script>
 </body>
 </html>
+    
