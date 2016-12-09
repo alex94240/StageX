@@ -13,9 +13,9 @@ public class Main {
 		
 		StudentDaoFactory stuFactory = new StudentDaoFactory();
 		
-		/* 
+		/*
 		//create a new record		 
-		Student stu = new student();
+		Student stu = new Student();
 		
 		stu.setAddress("test address");
 		stu.setCv("test cv");
@@ -35,23 +35,23 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
-		*/
+		 */
 		
 		
-		/*
+		/* */
 		//find a record
 		try {
-			Student findStu = stuFactory.find(100,student.class);
+			Student findStu = stuFactory.find(100,Student.class);
 			System.out.println(findStu.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 */
 		
 		
 		
-		/*
+		
+		/**/
 		//delete a record
 		try {
 			stuFactory.delete(100,Student.class);
@@ -59,7 +59,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 */
+		 
 		
 		
 		
@@ -89,7 +89,7 @@ public class Main {
 		*/
 		
 		
-		/*
+		/**/
 		//find records by some condition
 		Map<String,Object> sqlWhereMap = new HashMap<String, Object>();   
         sqlWhereMap.put("userId", "1");
@@ -104,7 +104,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
-        */  
+          
 		 
 		
 		
