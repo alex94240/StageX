@@ -23,9 +23,6 @@ public class Experience {
 	
 	@Column("loction")
 	private String loction;
-	
-	@Column("experiencecol")
-	private String experiencecol;
 
 	public int getExperienceId() {
 		return experienceId;
@@ -73,15 +70,6 @@ public class Experience {
 
 	public void setLoction(String loction) {
 		this.loction = loction;
-	}
-
-	public String getExperiencecol() {
-		return experiencecol;
-	}
-
-	public void setExperiencecol(String experiencecol) {
-		this.experiencecol = experiencecol;
-	}
-	
+	}	
 	
 }
