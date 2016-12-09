@@ -7,8 +7,8 @@ public class WebUser {
 	@Id("userId")
 	private int userId;
 	
-	@Id("userName")
-	private String userName;
+	@Id("login")
+	private String login;
 	
 	@Column("password")
 	private String password;
@@ -21,12 +21,12 @@ public class WebUser {
 		this.userId = userId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getPassword() {
