@@ -1,6 +1,10 @@
 package com.stagex.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.stagex.bean.Apply;
+import com.stagex.bean.Company;
 import com.stagex.factory.ApplyDaoFactory;
+import com.stagex.factory.CompanyDaoFactory;
 
 /**
  * Servlet implementation class ApplyServlet
@@ -46,7 +52,18 @@ public class ApplyServlet extends HttpServlet {
     	String receptionName = request.getParameter("receptionName");  		
   		String companyFax = request.getParameter("companyFax");
   		String companyEmail = request.getParameter("companyEmail");
-  		String companyTelephone = request.getParameter("companyTelephone");	
+  		String companyTelephone = request.getParameter("companyTelephone");
+  		
+  		Company company = new Company();
+  		company.setCompanyName(companyName);
+  		company.setSiretNumber(siretNum);
+  		company.setCodeApe(CodeAPE);
+  		company.setCompanyAddress(companyAddress);
+  		company.setReceptionName(receptionName);
+  		company.setFax(companyFax);
+  		company.setEmail(companyEmail);
+  		company.setTelphone(companyTelephone);
+  		CompanyDaoFactory companyFact = new CompanyDaoFactory();
   		
   		//apply information
     	String chargeContact = request.getParameter("chargeContact");
@@ -74,14 +91,45 @@ public class ApplyServlet extends HttpServlet {
     	String applyGoal = request.getParameter("applyGoal");
     	String pricipleSteps = request.getParameter("pricipleSteps");
     	String applyRequirement = request.getParameter("applyRequirement");
-			
-		/*
+    	
+    	//System.out.println(prestation);
+		apply.setChargePersonContact(chargeContact);
+		apply.setApplyAddress(applyAddress);
+		apply.setApplyTelphone(applyPhone);
+		apply.setDecription(description);
 		try {
+			apply.setStartDate(new Date(new SimpleDateFormat("yyyy-MM-dd").parse(startDate).getTime()));
+			apply.setEndDate(new Date(new SimpleDateFormat("yyyy-MM-dd").parse(endDate).getTime()));
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		apply.setSalary(Integer.parseInt(salary));
+		apply.setBenefit(Integer.parseInt(benefit));
+		apply.setHealthInsurance(Integer.parseInt(healthInsurance));
+		apply.setWorkTrip(Integer.parseInt(workTrip));
+		apply.setWayFindApply(wayFindApply);
+		apply.setBossFirstName(bossPrenom);
+		apply.setBossLastName(bossNom);
+		apply.setBossEmail(bossEmail);
+		apply.setBossJob(bossJob);
+		apply.setBossTelphone(bossTelephone);
+		apply.setBossFax(bossFax);
+		apply.setCompanyPrestation(prestation);
+		apply.setCompanyContast(contast);
+		apply.setApplyGoal(applyGoal);
+		apply.setPricipleSteps(pricipleSteps);
+		apply.setApplyRequirement(applyRequirement);
+		
+		try {
+			int companyId = companyFact.createReturnId(company);
+			apply.setCompanyId(companyId);
 			applyFactory.create(apply);
+			
+			//apply.setStudentId(studentId);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		*/
 	}
 
 	
