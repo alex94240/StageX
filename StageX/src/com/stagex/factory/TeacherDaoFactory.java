@@ -7,18 +7,19 @@ import com.stagex.dbutil.DatabaseConnection;
 public class TeacherDaoFactory extends GenericDaoImpl<Teacher> {
 	
 	//salary internship
-	public static void salInternship() throws Exception{
+	public static int salInternship() throws Exception{
 		DatabaseConnection dbConn = new DatabaseConnection();
 		Connection conn= dbConn.getConnection();
 		Statement statement = conn.createStatement();
 		ResultSet resultat = statement.executeQuery( "SELECT avg(salary) FROM stagex.apply"
 				+ "WHERE validate='true';");
-		
+		int a = 0;
 		while (resultat.next()){
-			int a=resultat.getInt("avg(salary)");
+			a=resultat.getInt("avg(salary)");
 			System.out.println("Le salaire moyen des élèves en stage est:"+a);
 		}
 		resultat.close();
+		return a;
 	}
 	
 	//salary 

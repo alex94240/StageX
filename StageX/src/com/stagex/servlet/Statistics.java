@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.stagex.factory.TeacherDaoFactory;
+
 /**
  * Servlet implementation class Statistics
  */
@@ -26,8 +28,15 @@ public class Statistics extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int a = 0;
+		try {
+			a = TeacherDaoFactory.salInternship();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("avgSalInternship",a);
+		this.getServletContext().getRequestDispatcher( "/WebContent/index.jsp" ).forward( request, response );
 	}
 
 	/**
