@@ -64,12 +64,6 @@ public class ApplyServlet extends HttpServlet {
   		company.setEmail(companyEmail);
   		company.setTelphone(companyTelephone);
   		CompanyDaoFactory companyFact = new CompanyDaoFactory();
-  		try {
-			int companyId = companyFact.createReturnId(company);
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
   		
   		//apply information
     	String chargeContact = request.getParameter("chargeContact");
