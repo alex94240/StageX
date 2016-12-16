@@ -12,6 +12,4 @@ public class StudentDaoFactory extends GenericDaoImpl<Student>{
 		return false;
 		
 	}
-	
-
 }
