@@ -1,6 +1,5 @@
 package com.stagex.test;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +12,7 @@ public class Main {
 		
 		StudentDaoFactory stuFactory = new StudentDaoFactory();
 		
-		/*
+		/* 
 		//create a new record		 
 		Student stu = new Student();
 		
@@ -26,19 +25,19 @@ public class Main {
 		stu.setMotivation("test motivtion");
 		stu.setPicture("test picture");
 		stu.setSocialSecruityNum("test SocialSecruityNum");
-		stu.setStudentId(100);
+		
 		stu.setTelphone("test telephone");
 		stu.setUserId(1);
 		
 		try {
-			stuFactory.create(stu);
+			stuFactory.createReturnId(stu);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
-		 */
+		*/
 		
 		
-		/* */
+		/* 
 		//find a record
 		try {
 			Student findStu = stuFactory.find(100,Student.class);
@@ -47,11 +46,11 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 		
 		
 		
-		
-		/**/
+		/*
 		//delete a record
 		try {
 			stuFactory.delete(100,Student.class);
@@ -59,7 +58,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 
+		 */
 		
 		
 		
@@ -89,7 +88,7 @@ public class Main {
 		*/
 		
 		
-		/**/
+		/*
 		//find records by some condition
 		Map<String,Object> sqlWhereMap = new HashMap<String, Object>();   
         sqlWhereMap.put("userId", "1");
@@ -104,7 +103,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
-          
+        */  
 		 
 		
 		
