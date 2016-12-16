@@ -26,8 +26,7 @@ public class Apply {
 	@Column("decription")
 	private String decription;
 
-	// new Date(new
-	// SimpleDateFormat("yyyy-MM-dd").parse("2007-01-01").getTime())
+	// new Date(new SimpleDateFormat("yyyy-MM-dd").parse("2007-01-01").getTime())
 	@Column("startDate")
 	private Date startDate;
 

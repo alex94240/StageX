@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 import com.stagex.dbutil.*;
 import com.stagex.annotation.*;
+import com.stagex.bean.Student;
 
 public class GenericDaoImpl<T> implements GenericDao<T> {
 	
@@ -233,6 +234,103 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
         return list; 
 	}
 
+	
+	public int createReturnId(T t) throws Exception {
+		Class<?> clazz = t.getClass();
+
+		String tableName = getTableName(clazz);
+		Map<String,Object> sqlWhereMap = new HashMap<String, Object>();
+
+		StringBuilder fieldNames = new StringBuilder();
+		List<Object> fieldValues = new ArrayList<Object>();
+		StringBuilder placeholders = new StringBuilder();
+		Field[] fields = clazz.getDeclaredFields();
+
+		for (Field field : fields) {
+			PropertyDescriptor pd = new PropertyDescriptor(field.getName(), t.getClass());
+			if (field.isAnnotationPresent(Id.class)) {
+				fieldNames.append(field.getAnnotation(Id.class).value()).append(",");  
+                fieldValues.add(pd.getReadMethod().invoke(t));
+			} else if (field.isAnnotationPresent(Column.class)) {
+				fieldNames.append(field.getAnnotation(Column.class).value()).append(",");
+				fieldValues.add(pd.getReadMethod().invoke(t));
+				sqlWhereMap.put(field.getAnnotation(Column.class).value(), pd.getReadMethod().invoke(t));
+			}
+			placeholders.append("?").append(",");
+		}
+
+		fieldNames.deleteCharAt(fieldNames.length() - 1);
+		placeholders.deleteCharAt(placeholders.length() - 1);
+
+		StringBuilder sql = new StringBuilder("");
+		sql.append("insert into ").append(tableName).append(" (").append(fieldNames.toString()).append(") values (")
+				.append(placeholders).append(")");
+		DatabaseConnection dbConn = new DatabaseConnection();
+		PreparedStatement ps = dbConn.getConnection().prepareStatement(sql.toString());
+
+		setParameter(fieldValues, ps, false);
+
+		ps.execute();
+		dbConn.close();
+		
+		int id = -1;
+		List<T> list = new ArrayList<T>(); 
+        String idFieldName = "";  
+         
+        
+        for (Field field : fields) {  
+            String propertyName = field.getName();  
+            if (field.isAnnotationPresent(Id.class)) {  
+                idFieldName = field.getAnnotation(Id.class).value();  
+                fieldNames.append(TABLE_ALIAS + "." + idFieldName)  
+                          .append(" as ").append(propertyName).append(",");  
+            } else if (field.isAnnotationPresent(Column.class)) {  
+                fieldNames.append(TABLE_ALIAS + "." + field.getAnnotation(Column.class).value())  
+                          .append(" as ").append(propertyName).append(",");  
+            }  
+        }  
+        fieldNames.deleteCharAt(fieldNames.length()-1);  
+          
+        
+        String sql1 = "select " + idFieldName + " from " + tableName + " " + TABLE_ALIAS;  
+        PreparedStatement ps1 = null;  
+        List<Object> values = null;  
+        if (sqlWhereMap != null) {  
+            List<Object> sqlWhereWithValues = getSqlWhereWithValues(sqlWhereMap);  
+            if (sqlWhereWithValues != null) {  
+                
+                String sqlWhere = (String)sqlWhereWithValues.get(0);  
+                sql1 += sqlWhere;  
+                
+                values = (List<Object>) sqlWhereWithValues.get(1);  
+            }  
+        }   
+          
+
+        DatabaseConnection dbConn1 = new DatabaseConnection();
+        if (values != null) {  
+            ps1 = dbConn1.getConnection().prepareStatement(sql1);  
+            setParameter(values, ps1, true);  
+        } else {  
+            ps1 = dbConn1.getConnection().prepareStatement(sql1);  
+        }  
+          
+ 
+        ResultSet rs = ps1.executeQuery();  
+        if(rs.next()){
+        	id = rs.getInt(1);
+        }
+
+        dbConn1.close(); 
+
+        System.out.println(sql1);		
+		
+		System.out.println(sql1 + "\n" + clazz.getSimpleName() + "create without Id succ");
+		
+		System.out.println("\n ID is " + id);
+
+		return id;
+	}
 	
 	
 	

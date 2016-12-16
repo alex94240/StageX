@@ -26,45 +26,118 @@
         </div>
       </div>
       <div class="row card-panel">
-        <form class="col s12">
+        <form class="col s12" action="ApplyServlet" method="post">
+       	  <% 
+        	String group = request.getParameter("group");
+      		String nom = request.getParameter("nom");
+      		String prenom = request.getParameter("prenom");
+        	String numOfSocialSecurity = request.getParameter("numOfSocialSecurity");
+        	String parcours = request.getParameter("parcours");
+        	String personAddress = request.getParameter("personAddress");
+        	String personEmail = request.getParameter("personEmail");
+        	String personTelephone = request.getParameter("personTelephone");
+        	
+        	String siretNum = request.getParameter("siretNum");
+        	String CodeAPE = request.getParameter("CodeAPE");
+        	String companyName = request.getParameter("companyName");
+      		String companyAddress = request.getParameter("companyAddress");
+      		String applyAddress = request.getParameter("applyAddress");
+        	String receptionName = request.getParameter("receptionName");
+        	String applyPhone = request.getParameter("applyPhone");
+        	String companyFax = request.getParameter("companyFax");
+        	String chargeContact = request.getParameter("chargeContact");
+        	String companyTelephone = request.getParameter("companyTelephone");
+        	String companyEmail = request.getParameter("companyEmail");
+        	
+        	String bossNom = request.getParameter("bossNom");
+        	String bossPrenom = request.getParameter("bossPrenom");
+      		String bossEmail = request.getParameter("bossEmail");
+      		String bossJob = request.getParameter("bossJob");
+        	String bossTelephone = request.getParameter("bossTelephone");
+        	String bossFax = request.getParameter("bossFax");
+        	
+        	String description = request.getParameter("description");
+        	String startDate = request.getParameter("startDate");
+        	String endDate = request.getParameter("endDate");
+        	String salary = request.getParameter("salary");
+        	String benefit = request.getParameter("benefit");
+        	String healthInsurance = request.getParameter("healthInsurance");
+        	String workTrip = request.getParameter("workTrip");
+        	String wayFindApply = request.getParameter("wayFindApply");
+          %>
+          
+          <input type="hidden" name="group" value="<%=group%>">
+          <input type="hidden" name="nom" value="<%=nom%>">
+          <input type="hidden" name="prenom" value="<%=prenom%>">
+          <input type="hidden" name="numOfSocialSecurity" value="<%=numOfSocialSecurity%>">
+          <input type="hidden" name="parcours" value="<%=parcours%>">
+          <input type="hidden" name="personAddress" value="<%=personAddress%>">
+          <input type="hidden" name="personEmail" value="<%=personEmail%>">
+          <input type="hidden" name="personTelephone" value="<%=personTelephone%>">
+          <input type="hidden" name="siretNum" value="<%=siretNum%>">
+          <input type="hidden" name="CodeAPE" value="<%=CodeAPE%>">
+          <input type="hidden" name="companyName" value="<%=companyName%>">
+          <input type="hidden" name="companyAddress" value="<%=companyAddress%>">
+          <input type="hidden" name="applyAddress" value="<%=applyAddress%>">
+          <input type="hidden" name="receptionName" value="<%=receptionName%>">
+          <input type="hidden" name="applyPhone" value="<%=applyPhone%>">
+          <input type="hidden" name="companyFax" value="<%=companyFax%>">
+          <input type="hidden" name="chargeContact" value="<%=chargeContact%>">
+          <input type="hidden" name="companyTelephone" value="<%=companyTelephone%>">
+          <input type="hidden" name="companyEmail" value="<%=companyEmail%>">
+          <input type="hidden" name="bossNom" value="<%=bossNom%>">
+          <input type="hidden" name="bossPrenom" value="<%=bossPrenom%>">
+          <input type="hidden" name="bossEmail" value="<%=bossEmail%>">
+          <input type="hidden" name="bossJob" value="<%=bossJob%>">
+          <input type="hidden" name="bossTelephone" value="<%=bossTelephone%>">
+          <input type="hidden" name="bossFax" value="<%=bossFax%>">
+          <input type="hidden" name="description" value="<%=description%>">
+          <input type="hidden" name="startDate" value="<%=startDate%>">
+          <input type="hidden" name="endDate" value="<%=endDate%>">
+          <input type="hidden" name="salary" value="<%=salary%>">
+          <input type="hidden" name="benefit" value="<%=benefit%>">
+          <input type="hidden" name="healthInsurance" value="<%=healthInsurance%>">
+          <input type="hidden" name="workTrip" value="<%=workTrip%>">
+          <input type="hidden" name="wayFindApply" value="<%=wayFindApply%>">
+          
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mode_edit</i>
-              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <textarea id="icon_prefix2" class="materialize-textarea" name="prestation"></textarea>
               <label for="icon_prefix2">Présentation succincte de l’Entreprise ou du Service</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mode_edit</i>
-              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <textarea id="icon_prefix2" class="materialize-textarea" name="contast"></textarea>
               <label for="icon_prefix2">Contexte dans lequel s’intègre le stage</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mode_edit</i>
-              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <textarea id="icon_prefix2" class="materialize-textarea" name="applyGoal"></textarea>
               <label for="icon_prefix2">Mission confiée au stagiaire - Objectifs</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mode_edit</i>
-              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <textarea id="icon_prefix2" class="materialize-textarea" name="pricipleSteps"></textarea>
               <label for="icon_prefix2">Si possible, principales étapes du stage</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">mode_edit</i>
-              <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+              <textarea id="icon_prefix2" class="materialize-textarea" name="applyRequirement"></textarea>
               <label for="icon_prefix2">Connaissances requises</label>
             </div>
           </div>
           <div class="row">
             <div class="col s3 offset-s5">
-              <a class="waves-effect waves-light btn btn-isep" href=""><i class="material-icons left">email</i>Envoyer</a>
+            <i class="material-icons left">email</i><input class="waves-effect waves-light btn btn-isep" type="submit" name="submit" value="Envoyer">
             </div>
           </div>
         </form>
