@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,6 +38,41 @@
               06.70.76.73.80
             </div>
           </div>
+          
+          <c:forEach var="parametre" items="${ paramValues }"> 
+
+         <ul>
+
+            <%-- Affiche la clé de la Map paramValues,
+
+            qui correspond concrètement au nom du paramètre. --%>
+
+            <li><b><c:out value="${ parametre.key }"/></b> :</li>
+
+
+            <%-- Parcourt le tableau de String[] associé à la clé traitée, 
+
+            qui correspond à la liste de ses valeurs. --%>
+
+            <c:forEach var="value" items="${ parametre.value }">
+
+               <%-- Affiche chacune des valeurs pour la clé donnée --%>
+
+               <c:out value="${ value }"/>   
+
+            </c:forEach>
+
+         </ul>
+
+      </c:forEach>
+          
+      <!--<c:forEach var="profilHelene" items="${ parametre.profilHelene }">
+
+               <%-- Affiche chacune des valeurs pour la clé donnée --%>
+
+               <c:out value="${ value }"/>   -->
+
+            
           <div class="row">
             <div class="s12">
               vely@juniorisep.com
@@ -52,6 +88,9 @@
               <h4>ELY</h4>
             </div>
           </div>
+          
+             <!--</c:forEach> -->
+          
           <div class="row">
             <div class="col s4">
               Étudiant
