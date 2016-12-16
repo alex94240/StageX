@@ -44,6 +44,19 @@ public class Offer {
 
 	@Column("duration")
 	private String duration;
+	
+	@Column("validate")
+	private boolean validate;
+	
+	
+
+	public boolean isValidate() {
+		return validate;
+	}
+
+	public void setValidate(boolean validate) {
+		this.validate = validate;
+	}
 
 	public int getOfferId() {
 		return offerId;

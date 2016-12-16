@@ -81,6 +81,30 @@ public class Apply {
 
 	@Column("applyRequirement")
 	private String applyRequirement;
+	
+	@Column("validate")
+	private boolean validate;
+	
+	
+	public boolean isValidate() {
+		return validate;
+	}
+
+	public void setValidate(boolean validate) {
+		this.validate = validate;
+	}
+
+	public int getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
+	}
+
+	@Column("companyId")
+	private int companyId;
+	
 
 	public int getApplyId() {
 		return applyId;
