@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class loginServlet
  */
-@WebServlet("/login")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,8 +26,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		this.getServletContext().getRequestDispatcher( "/WebContent/index.jsp" ).forward( request, response );
+		this.getServletContext().getRequestDispatcher( "/index.jsp" ).forward( request, response );
 	}
 
 	/**	

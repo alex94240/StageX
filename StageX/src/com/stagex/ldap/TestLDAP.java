@@ -6,8 +6,8 @@ class TestLDAP
 	{
 		LDAPaccess access = new LDAPaccess();
 		try {
-		String login = "";
-		String mdp = "";
+		String login = "mylenacauche";
+		String mdp = "PsR/r7TJ";
 		// remplacez login par la variable qui contient le login, et mdp par la variable qui contient le mot de passe
 		LDAPObject test = access.LDAPget(login, mdp); 
 		if (test == null)
