@@ -1,10 +1,30 @@
 package com.stagex.factory;
+<<<<<<< HEAD
+
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+=======
 import java.sql.*;
+>>>>>>> ce136c67069e55e0215897069d765328f446ecf3
 import com.stagex.bean.Teacher;
 import com.stagex.dao.GenericDaoImpl;
 import com.stagex.dbutil.DatabaseConnection;
 
 public class TeacherDaoFactory extends GenericDaoImpl<Teacher> {
+<<<<<<< HEAD
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		TeacherDAO dao = new TeacherDAO(); //creating obj for class StudentDAO		
+		for(int i=1; i>=0; i++){
+		Student s1 = dao.getStudent(i);//we dont hav a method here so we hav to define below
+		System.out.println(s1.userid +" "+ s1.username);
+		}
+	}
+=======
 	
 	//salary internship
 	public static int salInternship() throws Exception{
@@ -54,4 +74,35 @@ public class TeacherDaoFactory extends GenericDaoImpl<Teacher> {
 		resultat.close();
 	}
 	
+>>>>>>> ce136c67069e55e0215897069d765328f446ecf3
+}
+
+class TeacherDAO{
+	public Student getStudent(int userid)
+	{
+		try{
+			Student s = new Student();
+			s.userid = userid;
+			String query = "select username from student where userid="+userid;
+		
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/stagex?useSSL=false","root","root");
+			Statement  st = (Statement) con.createStatement();
+		
+			ResultSet rs = st.executeQuery(query);
+			rs.next();
+			String name = rs.getString(1);
+			s.username = name;
+			return s;
+		}
+		catch(Exception ex){
+			System.out.println(ex);
+		}
+		return null;
+		}
+	} 
+
+class Student{
+	int userid;
+	String username;
 }
