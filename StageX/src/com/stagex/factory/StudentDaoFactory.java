@@ -13,9 +13,4 @@ public class StudentDaoFactory extends GenericDaoImpl<Student>{
 		
 	}
 	
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> 4e9d5f3fd94efc0b7ec366b681e05ff76118fddb
 }
