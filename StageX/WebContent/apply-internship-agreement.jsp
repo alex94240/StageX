@@ -323,11 +323,11 @@
               <label for="icon_prefix">A l'étranger<sup>2</sup>, Si l'indemnité est supérieure à 15 % du plafond mensuel de la sécurité sociale (cad supérieure à 554,40 €), la société s'engage-t-elle à assurer la couverture des risques Maladie et Accident du travail</label><br><br>
               <div class="row">
                 <div class="col s1">
-                  <input class="with-gap" name="healthInsurance" type="radio" id="Oui"/>
+                  <input class="with-gap" name="healthInsurance" type="radio" id="Oui" value = "1"/>
                   <label for="Oui">Oui</label>
                 </div>
                 <div class="col s1">
-                  <input class="with-gap" name="healthInsurance" type="radio" id="Non"/>
+                  <input class="with-gap" name="healthInsurance" type="radio" id="Non" value = "0"/>
                   <label for="Non">Non</label>
                 </div>
               </div>
@@ -338,11 +338,11 @@
               <label for="icon_prefix">Déplacement à l'étranger<sup>3</sup> au cours du stage (effectué en France)</label><br>
               <div class="row">
                 <div class="col s1">
-                  <input class="with-gap" name="workTrip" type="radio" id="Hello"/>
+                  <input class="with-gap" name="workTrip" type="radio" id="Hello" value = "1"/>
                   <label for="Hello">Oui</label>
                 </div>
                 <div class="col s1">
-                  <input class="with-gap" name="workTrip" type="radio" id="Bye"/>
+                  <input class="with-gap" name="workTrip" type="radio" id="Bye" value = "0"/>
                   <label for="Bye">Non</label>
                 </div>
               </div>

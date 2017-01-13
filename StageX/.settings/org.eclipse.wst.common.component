@@ -2,6 +2,9 @@
     <wb-module deploy-name="StageX">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <dependent-module archiveName="mysql-connector-java-5.1.40-bin.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/StageX/WebContent/lib/mysql-connector-java-5.1.40-bin.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="StageX"/>
         <property name="java-output-path" value="/StageX/build/classes"/>
     </wb-module>

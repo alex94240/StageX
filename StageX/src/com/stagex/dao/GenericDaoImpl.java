@@ -325,9 +325,9 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 
         System.out.println(sql1);		
 		
-		System.out.println(sql1 + "\n" + clazz.getSimpleName() + "create without Id succ");
+		System.out.println("\n" + clazz.getSimpleName() + "create without Id succ");
 		
-		System.out.println("\n ID is " + id);
+		System.out.println("\nID is " + id);
 
 		return id;
 	}

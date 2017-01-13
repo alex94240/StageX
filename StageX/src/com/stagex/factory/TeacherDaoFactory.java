@@ -1,20 +1,12 @@
 package com.stagex.factory;
-<<<<<<< HEAD
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
-=======
 import java.sql.*;
->>>>>>> ce136c67069e55e0215897069d765328f446ecf3
 import com.stagex.bean.Teacher;
 import com.stagex.dao.GenericDaoImpl;
 import com.stagex.dbutil.DatabaseConnection;
 
 public class TeacherDaoFactory extends GenericDaoImpl<Teacher> {
-<<<<<<< HEAD
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -24,7 +16,6 @@ public class TeacherDaoFactory extends GenericDaoImpl<Teacher> {
 		System.out.println(s1.userid +" "+ s1.username);
 		}
 	}
-=======
 	
 	//salary internship
 	public static int salInternship() throws Exception{
@@ -74,7 +65,6 @@ public class TeacherDaoFactory extends GenericDaoImpl<Teacher> {
 		resultat.close();
 	}
 	
->>>>>>> ce136c67069e55e0215897069d765328f446ecf3
 }
 
 class TeacherDAO{
